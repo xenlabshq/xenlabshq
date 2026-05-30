@@ -221,10 +221,10 @@ nav a:hover {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    /* Bilgisayarda milimetrik 2'li simetrik sütun düzeni oluşturur */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 1.5rem;
 }
-
 .card {
     background-color: rgba(10, 14, 22, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.03);
