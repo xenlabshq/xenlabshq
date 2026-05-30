@@ -324,18 +324,74 @@ footer p {
 @media (max-width: 768px) {
     /* 1. Üst Menüyü (Navbar) Telefona Göre Dikey Hizala */
     header {
-        /* 3. Mobil Logo Boyut Ayarı */
-        .cyber-logo {
-        height: 24px !important;    /* Logonun mobildeki yüksekliğini yukarıdan aşağıya sabitler */
-        max-width: 120px !important; /* Genişliğinin ekranı patlatmasını engeller */
-        width: auto !important;     /* En-boy oranını korur */
-        margin: 5px 0 !important;   /* Alttan ve üstten kibar bir boşluk bırakır */
-    }
         flex-direction: column !important;
         gap: 15px !important;
         padding: 1.2rem 5% !important;
         text-align: center;
     }
+
+    /* 3. Mobil Logo Boyut Ayarı (Header'ın dışına ama Media'nın içine) */
+    .cyber-logo {
+        height: 24px !important;    /* Logonun mobildeki yüksekliğini sabitler */
+        max-width: 120px !important; /* Genişliğinin ekranı patlatmasını engeller */
+        width: auto !important;     /* En-boy oranını korur */
+        margin: 5px 0 !important;   /* Alttan ve üstten kibar bir boşluk bırakır */
+    }
+
+    /* 2. Linklerin Yan Yana Sıkışmasını Engelle ve Ortala */
+    nav {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        margin: 5px 0 !important;
+    }
+
+    nav a {
+        margin-left: 0 !important;
+        padding: 4px 8px !important;
+        font-size: 0.85rem !important;
+    }
+
+    .github-btn {
+        display: inline-block !important;
+        width: auto !important;
+        margin-top: 5px !important;
+    }
+
+    .hero h1 { 
+        font-size: 2.1rem !important; 
+        line-height: 1.3 !important;
+        letter-spacing: 0px !important;
+    }
+
+    .subtitle {
+        font-size: 0.95rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .terminal-window { 
+        padding: 1.5rem !important; 
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    .hero p {
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+    }
+
+    .hero, .vision-section, .labs-section { 
+        padding-left: 5% !important; 
+        padding-right: 5% !important; 
+        padding-top: 4rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    .live-data {
+        flex-direction: column !important;
+        gap: 5px !important;
+    }
+}
 
     /* 2. Linklerin Yan Yana Sıkışmasını Engelle ve Ortala */
     nav {
