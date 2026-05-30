@@ -3,78 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siber Savunma Teknolojileri | Güvenli Bölge</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cyberDark: '#0a0f1d',
-                        cyberGreen: '#00FF66',
-                        cyberGray: '#1e293b'
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Xen Labs | Advanced Frontiers & Multidisciplinary Research</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-cyberDark text-white font-mono selection:bg-cyberGreen selection:text-black antialiased overflow-x-hidden">
+<body>
 
-    <!-- ÜST MENÜ (NAVBAR) - Mobil ve Masaüstü Uyumlu -->
-    <nav class="border-b border-cyberGreen/20 bg-cyberDark/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <span class="text-cyberGreen font-bold text-lg sm:text-xl tracking-tight">&lt;SİBER_LAB /&gt;</span>
-            </div>
-            <!-- Masaüstü Linkleri (Mobilde gizli: hidden, Bilgisayarda açık: md:flex) -->
-            <div class="hidden md:flex space-x-8 text-sm uppercase tracking-wider items-center">
-                <a href="#cozumler" class="hover:text-cyberGreen transition">Çözümler</a>
-                <a href="#lab" class="hover:text-cyberGreen transition">Laboratuvar</a>
-                <a href="#hakkimizda" class="hover:text-cyberGreen transition">Hakkımızda</a>
-                <a href="#iletisim" class="text-cyberGreen border border-cyberGreen/40 px-4 py-1.5 rounded hover:bg-cyberGreen/10 transition">Sızma Testi İste</a>
-            </div>
-            <!-- Mobil için küçük buton (Bozulmayı önlemek için sağ üst köşede kibar durur) -->
-            <div class="md:hidden">
-                <a href="#iletisim" class="text-cyberGreen border border-cyberGreen/50 px-3 py-1 rounded text-xs uppercase tracking-wider bg-cyberGreen/5">İletişim</a>
-            </div>
-        </div>
-    </nav>
+    <!-- Arka plandaki siber çizgiler -->
+    <div class="cyber-grid"></div>
 
-    <!-- HERO ALANI - Telefonlarda asla taşmayan esnek yapı -->
-    <section class="relative min-h-[calc(100vh-80px)] flex items-center justify-center px-4 sm:px-6 py-12 overflow-hidden">
-        <!-- Arka plandaki dijital ağ efekti -->
-        <div class="absolute inset-0 bg-[radial-gradient(#00FF66_1px,transparent_1px)] [background-size:32px_32px] opacity-5"></div>
-        
-        <div class="max-w-4xl text-center relative z-10 w-full">
-            <!-- Durum Rozeti -->
-            <div class="inline-flex items-center space-x-2 bg-cyberGreen/10 border border-cyberGreen/30 px-3 py-1.5 rounded-full text-[10px] sm:text-xs text-cyberGreen mb-6 tracking-widest uppercase max-w-full">
-                <span class="w-2 h-2 rounded-full bg-cyberGreen animate-ping shrink-0"></span>
-                <span class="truncate">Sistem Durumu: Aktif ve Güvenli</span>
-            </div>
-            
-            <!-- Başlık: Büyük ekranlarda devasa, telefonlarda kırılabilen (break-words) ve ideal boyutta -->
-            <h1 class="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-6 break-words leading-tight">
-                Görünmez Tehditlere Karşı, <br class="hidden sm:inline">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberGreen to-cyan-400">Kusursuz Savunma.</span>
-            </h1>
-            
-            <!-- Açıklama Metni -->
-            <p class="text-gray-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed px-2">
-                Geleneksel güvenlik duvarları artık yetersiz. Şirketinizin dijital varlıklarını Zero-Trust mimarisiyle izole ediyor, tehditleri henüz ağınıza ulaşmadan yok ediyoruz.
-            </p>
-            
-            <!-- Butonlar: Mobilde alt alta (flex-col), bilgisayarda yan yana (sm:flex-row) -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-sm mx-auto sm:max-w-none">
-                <a href="#iletisim" class="w-full sm:w-auto text-center bg-cyberGreen text-black font-bold px-8 py-4 rounded shadow-[0_0_20px_rgba(0,255,102,0.2)] hover:shadow-[0_0_35px_rgba(0,255,102,0.5)] transition duration-300 text-sm sm:text-base">
-                    Altyapıyı Güvenceye Al
-                </a>
-                <a href="#cozumler" class="w-full sm:w-auto text-center bg-cyberGray border border-gray-700 hover:border-gray-500 px-8 py-4 rounded transition duration-300 text-sm sm:text-base text-gray-300">
-                    Çözümleri İncele
-                </a>
-            </div>
+    <header>
+        <div class="logo-container">
+            <span class="pulse-dot"></span>
+            <div class="logo">XEN_LABS//SYS_INIT</div>
         </div>
-    </section>
+        <nav>
+            <a href="#vision">// VİZYON</a>
+            <a href="#labs">// DEPARTMANLAR</a>
+            <a href="https://github.com/xenlabshq" target="_blank" class="github-btn">TERMINAL_AUTH (🐙)</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="terminal-header">
+                <span class="win-btn close"></span>
+                <span class="win-btn min"></span>
+                <span class="win-btn max"></span>
+                <span class="terminal-title">core_kernel_v3.4.sh</span>
+            </div>
+            <div class="terminal-window">
+                <div class="badge">STATUS: SECURE_LINK_ESTABLISHED</div>
+                <h1 class="glitch" data-text="XEN LABS">XEN LABS</h1>
+                <div class="subtitle">Advanced Frontiers & Multidisciplinary Research</div>
+                <p>Biyolojik evrim mimarisinden derin uzay otonomisine, kriptografik mikrodenetleyici donanımlarından ofansif siber operasyonlara kadar tüm teknoloji spektrumunu kapsayan çok disiplinli araştırma üssü.</p>
+                <div class="terminal-footer">xen@X-KERNEL:~# <span class="cursor">_</span></div>
+            </div>
+        </section>
+
+        <!-- Vizyon Alanı -->
+        <section id="vision" class="vision-section">
+            <div class="section-title">// [01] MULTIDISCIPLINARY_PARADIGM</div>
+            <p>Xen Labs, disiplinler arası duvarları tamamen ortadan kaldırır. Bir biyo-yazıcının ürettiği sentetik doku, bir uzay aracının yaşam destek algoritmasına; yapay zeka bilgisayarlı görü modelleri ise hibrit VTOL hava araçlarının sürü zekasına dönüşür. Biz geleceği tahmin etmeyiz, onu izole laboratuvarlarımızda sentezleriz.</p>
+        </section>
+
+        <!-- Laboratuvarlar (Grid Yapısı) -->
+        <section id="labs" class="labs-section">
+            <div class="section-title">// [02] ACTIVE_RESEARCH_SECTORS</div>
+            
+            <div class="grid">
+                <!-- Departman 1 -->
+                <div class="card">
+                    <div class="card-header-sys">
+                        <span class="sys-code">SEC_01//AERO</span>
+                        <span class="sys-status green">TELEMETRY_OK</span>
+                    </div>
+                    <h3>Aerospace & Autonomous Systems</h3>
+                    <p>YOLO tabanlı gerçek zamanlı hedef acquisition ve nesne takibi algoritmaları. Sürü zekası optimizasyonları ve fütüristik katlanır kanatlı çok motorlu hibrit VTOL İHA yazılımları.</p>
+                    <div class="live-data">
+                        <span>SYS_ALT: 120m</span>
+                        <span>SAT_CONN: 12/12</span>
+                    </div>
+                </div>
+
+                <!-- Departman 2 -->
+                <div class="card">
+                    <div class="card-header-sys">
+                        <span class="sys-code">SEC_02//SEC</span>
+                        <span class="sys-status green">ENCRYPTED</span>
+                    </div>
+                    <h3>Cyber Security & Cryptography</h3>
+                    <p>nRF52840 tabanlı donanımlı şifre kasaları (V31 Neuro-Link). Kali Linux mimarisinde sürücü kilitlenmelerini engelleyen, USB bant genişliği optimizasyonlu 4 antenli Wi-Fi yön tespit radarları.</p>
+                    <div class="live-data">
+                        <span>ALGO: AES-256-GCM</span>
+                        <span>RADAR: SCANNING</span>
+                    </div>
+                </div>
+
+                <!-- Departman 3 -->
+                <div class="card">
+                    <div class="card-header-sys">
+                        <span class="sys-code">SEC_03//BIO</span>
+                        <span class="sys-status yellow">PRINT_ACTIVE</span>
+                    </div>
+                    <h3>Bio-Digital & Fabrication</h3>
+                    <p>Çok disiplinli moleküler hücre basım teknolojileri, yapay organ modelleme simülasyonları ve ekstrem havacılık koşullarına dayanıklı karbon fiber alaşımlı 3D parça üretimi.</p>
+                    <div class="live-data">
+                        <span>BIO_TEMP: 36.8°C</span>
+                        <span>AXIS_Z: STEP_OK</span>
+                    </div>
+                </div>
+
+                <!-- Departman 4 -->
+                <div class="card">
+                    <div class="card-header-sys">
+                        <span class="sys-code">SEC_04//DEEP</span>
+                        <span class="sys-status blue">SIM_MODE</span>
+                    </div>
+                    <h3>Frontier Deep Tech</h3>
+                    <p>Uzay araçları yörünge altı aviyonik sistemleri, kuantum sonrası şifreleme teorileri, Gazebo ve SITL ortamlarında test edilen siber-fiziksel otonom algoritmalar.</p>
+                    <div class="live-data">
+                        <span>ORBIT: SUB_REG</span>
+                        <span>SIM: GAZEBO_H</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-line"></div>
+        <p>SYS_LOG // LOCALHOST // ACCESS_GRANTED // &copy; 2026 xenlabshq.xyz</p>
+    </footer>
 
 </body>
 </html>
