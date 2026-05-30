@@ -324,6 +324,13 @@ footer p {
 @media (max-width: 768px) {
     /* 1. Üst Menüyü (Navbar) Telefona Göre Dikey Hizala */
     header {
+        /* 3. Mobil Logo Boyut Ayarı */
+        .cyber-logo {
+        height: 24px !important;    /* Logonun mobildeki yüksekliğini yukarıdan aşağıya sabitler */
+        max-width: 120px !important; /* Genişliğinin ekranı patlatmasını engeller */
+        width: auto !important;     /* En-boy oranını korur */
+        margin: 5px 0 !important;   /* Alttan ve üstten kibar bir boşluk bırakır */
+    }
         flex-direction: column !important;
         gap: 15px !important;
         padding: 1.2rem 5% !important;
