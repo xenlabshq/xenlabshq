@@ -316,3 +316,63 @@ footer p {
     header { padding: 1.5rem 5%; }
     .hero, .vision-section, .labs-section { padding-left: 5%; padding-right: 5%; }
 }
+
+/* ==========================================================================
+   🚨 XEN-LABS MOBİL UYUMLULUK (RESPONSIVE) YAMASI
+   ========================================================================== */
+
+/* Ekran genişliği 768px ve altı olduğunda (Akıllı telefonlar ve tabletler) */
+@media (max-width: 768px) {
+    
+    /* Genel sayfa boşluklarını daraltıyoruz ki ekrandan çalmasın */
+    body {
+        padding: 12px;
+        font-size: 14px; /* Yazıları mobilde ideal boyuta çekiyoruz */
+    }
+
+    /* Ana terminal konteyneri telefonda ekrana tam otursun, taşmasın */
+    .terminal-container, 
+    .container, 
+    main, 
+    section {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 10px 0 !important;
+        padding: 15px !important;
+        box-sizing: border-box !important; /* Kenar paylarını içeri dahil et */
+    }
+
+    /* Terminal başlık çubuğundaki (Kapat, Küçült, Büyüt) butonları veya başlığı hizala */
+    .terminal-header {
+        padding: 8px !important;
+        font-size: 13px;
+    }
+
+    /* Eğer yan yana duran butonlar veya linkler varsa alt alta sırala */
+    .nav-links, 
+    .button-group, 
+    .flex-container {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+    }
+
+    /* Görsellerin veya custom grafiklerin dışarı fırlamasını engelle */
+    img, 
+    canvas, 
+    svg {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Mobilde parmakla tıklamayı kolaylaştırmak için butonları optimize et */
+    .btn, 
+    button, 
+    a.button {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 12px !important;
+    }
+}
+
