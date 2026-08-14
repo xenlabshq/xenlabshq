@@ -1,43 +1,141 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+/* =========================================================================
+   XEN LABS — core_kernel_v3.4.sh
+   Design tokens
+   ========================================================================= */
+
+:root {
+    /* Color */
+    --bg: #05060a;
+    --bg-terminal-head: #0a0e16;
+    --surface: rgba(10, 14, 22, 0.6);
+    --surface-strong: rgba(10, 14, 22, 0.92);
+    --surface-hover: rgba(14, 20, 30, 0.95);
+    --border: rgba(148, 163, 184, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.05);
+
+    --text-heading: #eef2f7;
+    --text-body: #97a6bb;
+    --text-muted: #7186a0;
+
+    --accent: #00ffb2;
+    --accent-soft: rgba(0, 255, 178, 0.08);
+    --accent-2: #8b7bff;
+    --warn: #ffbd2e;
+    --info: #3ea6ff;
+    --ok: #27c93f;
+    --danger: #ff5f56;
+
+    /* Type */
+    --font-display: 'Space Grotesk', 'JetBrains Mono', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+    /* Layout */
+    --container: 1200px;
+    --gutter: clamp(1.5rem, 5vw, 8rem);
+    --radius: 5px;
+}
+
+/* =========================================================================
+   Reset
+   ========================================================================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'JetBrains Mono', monospace;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
 body {
-    background-color: #030305;
-    color: #8f9cae;
+    background-color: var(--bg);
+    color: var(--text-body);
+    font-family: var(--font-mono);
     overflow-x: hidden;
     position: relative;
+    line-height: 1.5;
 }
 
-/* Fütüristik Arka Plan Çizgileri */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 10px 16px;
+    font-weight: 700;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+}
+
+/* =========================================================================
+   Ambient background layers
+   ========================================================================= */
+
 .cyber-grid {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: linear-gradient(rgba(18, 24, 38, 0.2) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(18, 24, 38, 0.2) 1px, transparent 1px);
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(18, 24, 38, 0.35) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(18, 24, 38, 0.35) 1px, transparent 1px);
     background-size: 40px 40px;
-    z-index: -1;
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 90%);
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 90%);
+    z-index: -2;
     pointer-events: none;
 }
 
-/* Üst Menü */
+.scanlines {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.025) 0px,
+        rgba(255, 255, 255, 0.025) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    mix-blend-mode: overlay;
+    opacity: 0.6;
+}
+
+/* =========================================================================
+   Header
+   ========================================================================= */
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 8%;
+    gap: 1.5rem;
+    padding: 1.25rem var(--gutter);
     background-color: rgba(3, 3, 5, 0.85);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 255, 170, 0.1);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 255, 178, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -46,71 +144,106 @@ header {
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 10px; /* Elemanlar arasındaki siber boşluk */
+    gap: 10px;
+    text-decoration: none;
 }
 
-/* Yeni Eklenen Logo Görsel Sınıfı */
 .cyber-logo {
-    height: 22px; /* Bilgisayar ekranı için ideal logo yüksekliği */
-    width: auto;  /* Oranların bozulmasını engeller */
-    display: inline-block;
-    filter: drop-shadow(0 0 4px rgba(0, 255, 170, 0.2)); /* Hafif neon parlama */
+    height: 26px;
+    width: auto;
+    filter: drop-shadow(0 0 6px rgba(0, 255, 178, 0.35));
+    transition: filter 0.3s;
 }
 
-.pulse-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #00ffaa;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #00ffaa;
-    animation: pulse 1.5s infinite;
+.logo-container:hover .cyber-logo {
+    filter: drop-shadow(0 0 10px rgba(0, 255, 178, 0.6));
 }
 
 .logo {
-    color: #ffffff;
+    color: var(--text-heading);
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     font-size: 0.95rem;
+    font-family: var(--font-mono);
+}
+
+.logo-slash {
+    color: var(--accent);
+}
+
+nav {
+    display: flex;
+    align-items: center;
 }
 
 nav a {
-    color: #64748b;
+    color: var(--text-muted);
     text-decoration: none;
-    margin-left: 1.5rem;
+    margin-left: 1.75rem;
     font-size: 0.8rem;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.25s;
 }
 
 nav a:hover {
-    color: #00ffaa;
+    color: var(--accent);
 }
 
 .github-btn {
-    border: 1px solid rgba(0, 255, 170, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(0, 255, 178, 0.3);
     padding: 6px 14px;
-    border-radius: 3px;
-    background-color: rgba(0, 255, 170, 0.03);
-    color: #00ffaa !important;
-    text-shadow: 0 0 5px rgba(0, 255, 170, 0.5);
+    border-radius: var(--radius);
+    background-color: var(--accent-soft);
+    color: var(--accent) !important;
 }
 
 .github-btn:hover {
-    background-color: #00ffaa;
-    color: #030305 !important;
-    box-shadow: 0 0 15px #00ffaa;
+    background-color: var(--accent);
+    color: var(--bg) !important;
+    box-shadow: 0 0 18px rgba(0, 255, 178, 0.45);
 }
 
-/* Terminal Tipi Hero Alanı */
+.status-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.sys-time {
+    color: var(--accent);
+    min-width: 5.5ch;
+}
+
+.pulse-dot {
+    width: 7px;
+    height: 7px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent);
+    animation: pulse 1.8s infinite;
+    flex-shrink: 0;
+}
+
+/* =========================================================================
+   Hero / terminal
+   ========================================================================= */
+
 .hero {
-    padding: 6rem 8% 4rem 8%;
-    max-width: 1000px;
+    padding: 5rem var(--gutter) 3rem;
+    max-width: var(--container);
     margin: 0 auto;
 }
 
 .terminal-header {
-    background-color: #0d1117;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: var(--bg-terminal-head);
+    border: 1px solid var(--border-strong);
     border-bottom: none;
     padding: 10px 15px;
     border-top-left-radius: 8px;
@@ -127,118 +260,242 @@ nav a:hover {
     display: inline-block;
 }
 
-.close { background-color: #ff5f56; }
-.min { background-color: #ffbd2e; }
-.max { background-color: #27c93f; }
+.win-btn.close { background-color: var(--danger); }
+.win-btn.min { background-color: var(--warn); }
+.win-btn.max { background-color: var(--ok); }
 
 .terminal-title {
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 0.75rem;
     margin-left: 10px;
 }
 
 .terminal-window {
     background-color: rgba(10, 14, 22, 0.7);
-    border: 1px solid rgba(0, 255, 170, 0.15);
-    padding: 3rem;
+    border: 1px solid rgba(0, 255, 178, 0.15);
+    padding: 2.75rem clamp(1.25rem, 4vw, 3rem);
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
+/* Boot sequence — plays once on load, pure CSS */
+.boot-log {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+}
+
+.boot-line {
+    height: 1.4em;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    opacity: 0;
+    border-right: 2px solid transparent;
+}
+
+.boot-line b {
+    color: var(--ok);
+    font-weight: 700;
+}
+
+.boot-line-1 { --type-width: 30ch; animation: type-in 0.6s steps(30, end) 0.1s forwards; }
+.boot-line-2 { --type-width: 34ch; animation: type-in 0.7s steps(34, end) 0.9s forwards; }
+.boot-line-3 { --type-width: 19ch; animation: type-in 0.4s steps(19, end) 1.8s forwards; color: var(--accent); }
+
+.boot-cursor {
+    animation: blink 0.9s infinite;
+}
+
+.terminal-content {
+    opacity: 0;
+    animation: content-reveal 0.6s ease-out 2.2s forwards;
+}
+
 .badge {
-    color: #00ffaa;
+    color: var(--accent);
     font-size: 0.75rem;
     margin-bottom: 1.5rem;
-    background-color: rgba(0, 255, 170, 0.05);
+    background-color: var(--accent-soft);
     display: inline-block;
     padding: 4px 10px;
-    border: 1px dashed rgba(0, 255, 170, 0.3);
+    border: 1px dashed rgba(0, 255, 178, 0.3);
+    border-radius: 2px;
 }
 
 .hero h1 {
-    color: #ffffff;
-    font-size: 3.5rem;
+    font-family: var(--font-display);
+    color: var(--text-heading);
+    font-size: clamp(2.25rem, 6vw, 3.75rem);
     font-weight: 700;
     letter-spacing: -1px;
     margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
 }
 
+/* Glitch — one-shot on load (inherited timing via terminal-content),
+   short replay on hover for interactivity */
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.glitch::before {
+    color: var(--accent-2);
+    animation: glitch-flicker-a 0.9s steps(1, end) 2.3s 1 forwards;
+}
+
+.glitch::after {
+    color: var(--accent);
+    animation: glitch-flicker-b 0.9s steps(1, end) 2.3s 1 forwards;
+}
+
+.glitch:hover::before { animation: glitch-flicker-a 0.5s steps(1, end) 1 forwards; }
+.glitch:hover::after { animation: glitch-flicker-b 0.5s steps(1, end) 1 forwards; }
+
 .subtitle {
-    color: #00ffaa;
+    font-family: var(--font-display);
+    color: var(--accent);
     font-size: 1.1rem;
+    font-weight: 500;
     margin-bottom: 2rem;
-    text-shadow: 0 0 5px rgba(0, 255, 170, 0.3);
+    text-shadow: 0 0 8px rgba(0, 255, 178, 0.3);
 }
 
 .hero p {
     font-size: 1rem;
     line-height: 1.8;
-    color: #94a3b8;
+    color: var(--text-body);
     margin-bottom: 2rem;
+    max-width: 62ch;
 }
 
 .terminal-footer {
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 0.9rem;
 }
 
 .cursor {
     animation: blink 1s infinite;
-    color: #00ffaa;
+    color: var(--accent);
     font-weight: bold;
 }
 
-/* Ortak Bölüm Başlığı */
+/* =========================================================================
+   Section title
+   ========================================================================= */
+
 .section-title {
-    color: #ffffff;
+    font-family: var(--font-display);
+    color: var(--text-heading);
     font-size: 0.9rem;
+    font-weight: 600;
     letter-spacing: 1px;
-    border-left: 3px solid #00ffaa;
+    border-left: 3px solid var(--accent);
     padding-left: 15px;
     margin-bottom: 3rem;
 }
 
-/* Vizyon Alanı */
+.section-index {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-weight: 400;
+    margin-right: 4px;
+}
+
+/* =========================================================================
+   Vision section
+   ========================================================================= */
+
 .vision-section {
-    padding: 6rem 8%;
-    max-width: 1000px;
+    padding: 4rem var(--gutter);
+    max-width: var(--container);
     margin: 0 auto;
 }
 
 .vision-section p {
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 1.9;
-    color: #94a3b8;
+    color: var(--text-body);
+    max-width: 72ch;
 }
 
-/* Laboratuvar Kartları / Operasyon Paneli */
+/* =========================================================================
+   Labs / cards
+   ========================================================================= */
+
 .labs-section {
-    padding: 6rem 8%;
-    max-width: 1200px;
+    padding: 4rem var(--gutter) 6rem;
+    max-width: var(--container);
     margin: 0 auto;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
 }
 
 .card {
-    background-color: rgba(10, 14, 22, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    background-color: var(--surface);
+    border: 1px solid var(--border);
     padding: 2rem;
-    border-radius: 4px;
+    border-radius: var(--radius);
     position: relative;
+    transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* HUD targeting-corner detail */
+.card::before,
+.card::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--accent);
+    opacity: 0.2;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+.card::before {
+    top: 7px;
+    left: 7px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.card::after {
+    bottom: 7px;
+    right: 7px;
+    border-left: none;
+    border-top: none;
 }
 
 .card:hover {
-    border-color: rgba(0, 255, 170, 0.4);
-    background-color: rgba(10, 14, 22, 0.9);
-    box-shadow: 0 15px 35px rgba(0, 255, 170, 0.05);
-    transform: translateY(-2px);
+    border-color: rgba(0, 255, 178, 0.4);
+    background-color: var(--surface-hover);
+    box-shadow: 0 15px 35px rgba(0, 255, 178, 0.06);
+    transform: translateY(-3px);
+}
+
+.card:hover::before,
+.card:hover::after {
+    opacity: 1;
+    width: 18px;
+    height: 18px;
 }
 
 .card-header-sys {
@@ -246,12 +503,13 @@ nav a:hover {
     justify-content: space-between;
     font-size: 0.7rem;
     margin-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border-strong);
     padding-bottom: 10px;
 }
 
 .sys-code {
-    color: #64748b;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
 }
 
 .sys-status {
@@ -260,24 +518,25 @@ nav a:hover {
     font-weight: bold;
 }
 
-.green { background-color: rgba(39, 201, 63, 0.1); color: #27c93f; }
-.yellow { background-color: rgba(255, 189, 46, 0.1); color: #ffbd2e; }
-.blue { background-color: rgba(0, 170, 255, 0.1); color: #00aaff; }
+.sys-status.green { background-color: rgba(39, 201, 63, 0.1); color: var(--ok); }
+.sys-status.yellow { background-color: rgba(255, 189, 46, 0.1); color: var(--warn); }
+.sys-status.blue { background-color: rgba(62, 166, 255, 0.1); color: var(--info); }
 
 .card h3 {
-    color: #ffffff;
-    font-size: 1.1rem;
+    font-family: var(--font-display);
+    color: var(--text-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
     margin-bottom: 1rem;
 }
 
 .card p {
     font-size: 0.85rem;
-    line-height: 1.6;
-    color: #64748b;
+    line-height: 1.65;
+    color: var(--text-muted);
     margin-bottom: 1.5rem;
 }
 
-/* Canlı Sensör / Telemetri Verileri alanı */
 .live-data {
     display: flex;
     justify-content: space-between;
@@ -285,113 +544,189 @@ nav a:hover {
     padding: 8px 12px;
     border-radius: 3px;
     font-size: 0.7rem;
-    color: #00ffaa;
-    border-left: 2px solid rgba(0, 255, 170, 0.5);
+    color: var(--accent);
+    border-left: 2px solid rgba(0, 255, 178, 0.5);
 }
 
-/* Footer */
+/* =========================================================================
+   Footer
+   ========================================================================= */
+
 footer {
-    padding: 4rem 8% 2rem 8%;
-    text-align: center;
+    padding: 4rem var(--gutter) 2rem;
+    max-width: var(--container);
+    margin: 0 auto;
 }
 
 .footer-line {
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.03);
-    margin-bottom: 2rem;
+    background-color: var(--border-strong);
+    margin-bottom: 2.5rem;
 }
 
-footer p {
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.footer-brand .logo {
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.footer-brand p {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 1.75rem;
+}
+
+.footer-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.25s;
+}
+
+.footer-nav a:hover {
+    color: var(--accent);
+}
+
+.footer-log {
     color: #475569;
     font-size: 0.75rem;
+    text-align: center;
 }
 
-/* Animasyonlar */
+/* =========================================================================
+   Keyframes
+   ========================================================================= */
+
 @keyframes blink {
     50% { opacity: 0; }
 }
 
 @keyframes pulse {
     0% { transform: scale(0.9); opacity: 0.6; }
-    50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 15px #00ffaa; }
+    50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 15px var(--accent); }
     100% { transform: scale(0.9); opacity: 0.6; }
 }
 
-/* ==========================================================================
- *  📱 GELİŞMİŞ MOBİL VE TABLET OPTİMİZASYON KATMANI (KÖKTEN ÇÖZÜM)
- *  ========================================================================== */
+@keyframes type-in {
+    from { width: 0; opacity: 1; border-right-color: var(--accent); }
+    to { width: var(--type-width, 100%); opacity: 1; border-right-color: transparent; }
+}
 
-@media (max-width: 768px) {
-    /* 1. Üst Menüyü (Navbar) Telefona Göre Dikey Hizala */
+@keyframes content-reveal {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glitch-flicker-a {
+    0%, 100% { opacity: 0; transform: translate(0, 0); }
+    10% { opacity: 0.85; transform: translate(-3px, 1px); }
+    22% { opacity: 0; }
+    35% { opacity: 0.7; transform: translate(2px, -1px); }
+    47% { opacity: 0; }
+    60% { opacity: 0.6; transform: translate(-2px, 0); }
+    72% { opacity: 0; }
+}
+
+@keyframes glitch-flicker-b {
+    0%, 100% { opacity: 0; transform: translate(0, 0); }
+    12% { opacity: 0.85; transform: translate(3px, -1px); }
+    24% { opacity: 0; }
+    38% { opacity: 0.7; transform: translate(-2px, 1px); }
+    50% { opacity: 0; }
+    63% { opacity: 0.6; transform: translate(2px, 0); }
+    75% { opacity: 0; }
+}
+
+/* =========================================================================
+   Motion & contrast preferences
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+
+    .pulse-dot,
+    .cursor,
+    .boot-cursor { animation: none; }
+
+    .boot-log { display: none; }
+
+    .terminal-content {
+        opacity: 1;
+        animation: none;
+        transform: none;
+    }
+
+    .glitch::before,
+    .glitch::after,
+    .glitch:hover::before,
+    .glitch:hover::after {
+        animation: none;
+        opacity: 0;
+    }
+
+    .card:hover { transform: none; }
+}
+
+/* =========================================================================
+   Responsive
+   ========================================================================= */
+
+@media (max-width: 1024px) {
+    .grid { gap: 1.25rem; }
+}
+
+@media (max-width: 860px) {
     header {
-        flex-direction: column !important;
-        gap: 15px !important;
-        padding: 1.2rem 5% !important;
+        flex-wrap: wrap;
+        row-gap: 12px;
+        justify-content: center;
         text-align: center;
     }
 
-    /* 2. Linklerin Yan Yana Sıkışmasını Engelle ve Ortala */
     nav {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 10px !important;
-        margin: 5px 0 !important;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        row-gap: 10px;
     }
 
-    /* Sol boşluğu sıfırla ki linkler sağa doğru ekrandan taşmasın */
-    nav a {
-        margin-left: 0 !important;
-        padding: 4px 8px !important;
-        font-size: 0.85rem !important;
-    }
+    nav a { margin: 0 0.75rem; }
 
-    /* 3. Mobil Logo Boyut Ayarı */
-    .cyber-logo {
-        height: 18px; /* Telefonda dar üst barda kibar durması için boyut küçüldü */
-    }
+    .status-pill { order: 2; }
 
-    /* 4. GitHub Butonunu Mobilde Blok Yap ve Ortala */
-    .github-btn {
-        display: inline-block !important;
-        width: auto !important;
-        margin-top: 5px !important;
-    }
+    .hero { padding-top: 4rem; }
 
-    /* 5. Başlık Boyutunu Küçült (Kutuyu patlatan ana unsur buydu) */
-    .hero h1 {
-        font-size: 2.1rem !important;
-        line-height: 1.3 !important;
-        letter-spacing: 0px !important;
-    }
+    .terminal-window { padding: 1.5rem; }
 
-    .subtitle {
-        font-size: 0.95rem !important;
-        margin-bottom: 1.5rem !important;
-    }
+    .hero p { font-size: 0.92rem; }
 
-    /* 6. Terminal İç Boşluklarını Telefon Ekranı İçin Optimize Et */
-    .terminal-window {
-        padding: 1.5rem !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
-    }
+    .grid { grid-template-columns: 1fr; }
 
-    .hero p {
-        font-size: 0.9rem !important;
-        line-height: 1.6 !important;
+    .footer-grid {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
+}
 
-    /* 7. Genel Sayfa Kenar Boşluklarını Ayarla */
-    .hero, .vision-section, .labs-section {
-        padding-left: 5% !important;
-        padding-right: 5% !important;
-        padding-top: 4rem !important;
-        padding-bottom: 3rem !important;
-    }
+@media (max-width: 480px) {
+    .status-pill { display: none; }
 
-    /* 8. Kartların İçindeki Canlı Telemetri Alanını Esnet */
     .live-data {
-        flex-direction: column !important;
-        gap: 5px !important;
+        flex-direction: column;
+        gap: 5px;
     }
 }

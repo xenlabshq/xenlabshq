@@ -3,30 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xen Labs | Advanced Frontiers & Multidisciplinary Research</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Xen Labs | Advanced Frontiers &amp; Multidisciplinary Research</title>
+    <meta name="description" content="Xen Labs — havacılık ve otonom sistemlerden siber güvenliğe, biyo-dijital üretimden derin teknolojiye uzanan çok disiplinli araştırma üssü.">
+    <meta name="color-scheme" content="dark">
+    <meta property="og:title" content="Xen Labs">
+    <meta property="og:description" content="Advanced Frontiers & Multidisciplinary Research">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://xenlabshq.xyz/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Xen Labs">
+    <meta name="twitter:description" content="Advanced Frontiers & Multidisciplinary Research">
+    <meta name="twitter:image" content="https://xenlabshq.xyz/og-image.png">
+
+    <link rel="canonical" href="https://xenlabshq.xyz/">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" href="favicon-180.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css?v=2.0">
 </head>
 <body>
 
-    <!-- Arka plandaki siber çizgiler -->
-    <div class="cyber-grid"></div>
+    <div class="cyber-grid" aria-hidden="true"></div>
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <a class="skip-link" href="#main">İçeriğe geç</a>
 
     <header>
-        <div class="logo-container">
-            <span class="pulse-dot"></span>
-            <!-- Özel Logo Görseli -->
-            <img src="logo.png" alt="Xen Labs Logo" class="cyber-logo">
-            <div class="logo">XEN_LABS//SYS_INIT</div>
-        </div>
-        <nav>
+        <a href="#top" class="logo-container" aria-label="Xen Labs — ana sayfa">
+            <img src="logo-mark.png" alt="" class="cyber-logo" width="40" height="56">
+            <span class="logo">XEN_LABS<span class="logo-slash">//</span>SYS_INIT</span>
+        </a>
+
+        <nav aria-label="Ana menü">
             <a href="#vision">// VİZYON</a>
             <a href="#labs">// DEPARTMANLAR</a>
-            <a href="https://github.com/xenlabshq" target="_blank" class="github-btn">TERMINAL_AUTH (🐙)</a>
+            <a href="https://github.com/xenlabshq" target="_blank" rel="noopener noreferrer" class="github-btn">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M8 0c-4.42 0-8 3.58-8 8a8.01 8.01 0 0 0 5.47 7.59c.4.08.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+                TERMINAL_AUTH
+            </a>
         </nav>
+
+        <div class="status-pill">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            <span class="status-label">SYSTEM: ONLINE</span>
+            <span class="sys-time" id="sysTime">00:00:00</span>
+        </div>
     </header>
 
-    <main>
-        <section class="hero">
+    <main id="main">
+        <section class="hero" id="top">
             <div class="terminal-header">
                 <span class="win-btn close"></span>
                 <span class="win-btn min"></span>
@@ -34,69 +66,70 @@
                 <span class="terminal-title">core_kernel_v3.4.sh</span>
             </div>
             <div class="terminal-window">
-                <div class="badge">STATUS: SECURE_LINK_ESTABLISHED</div>
-                <h1 class="glitch" data-text="XEN LABS">XEN LABS</h1>
-                <div class="subtitle">Advanced Frontiers & Multidisciplinary Research</div>
-                <p>Biyolojik evrim mimarisinden derin uzay otonomisine, kriptografik mikrodenetleyici donanımlarından ofansif siber operasyonlara kadar tüm teknoloji spektrumunu kapsayan çok disiplinli araştırma üssü.</p>
-                <div class="terminal-footer">xen@X-KERNEL:~# <span class="cursor">_</span></div>
+                <div class="boot-log" aria-hidden="true">
+                    <div class="boot-line boot-line-1">&gt; establishing secure link<span class="boot-dots"></span> <b>OK</b></div>
+                    <div class="boot-line boot-line-2">&gt; authenticating research node<span class="boot-dots"></span> <b>OK</b></div>
+                    <div class="boot-line boot-line-3">&gt; access granted <span class="boot-cursor">_</span></div>
+                </div>
+                <div class="terminal-content">
+                    <div class="badge">STATUS: SECURE_LINK_ESTABLISHED</div>
+                    <h1 class="glitch" data-text="XEN LABS">XEN LABS</h1>
+                    <div class="subtitle">Advanced Frontiers &amp; Multidisciplinary Research</div>
+                    <p>Biyolojik evrim mimarisinden derin uzay otonomisine, kriptografik mikrodenetleyici donanımlarından ofansif siber operasyonlara kadar tüm teknoloji spektrumunu kapsayan çok disiplinli araştırma üssü.</p>
+                    <div class="terminal-footer">xen@X-KERNEL:~# <span class="cursor">_</span></div>
+                </div>
             </div>
         </section>
 
-        <!-- Vizyon Alanı -->
         <section id="vision" class="vision-section">
-            <div class="section-title">// [01] MULTIDISCIPLINARY_PARADIGM</div>
+            <div class="section-title"><span class="section-index">[01]</span> MULTIDISCIPLINARY_PARADIGM</div>
             <p>Xen Labs, disiplinler arası duvarları tamamen ortadan kaldırır. Bir biyo-yazıcının ürettiği sentetik doku, bir uzay aracının yaşam destek algoritmasına; yapay zeka bilgisayarlı görü modelleri ise hibrit VTOL hava araçlarının sürü zekasına dönüşür. Biz geleceği tahmin etmeyiz, onu izole laboratuvarlarımızda sentezleriz.</p>
         </section>
 
-        <!-- Laboratuvarlar (Grid Yapısı) -->
         <section id="labs" class="labs-section">
-            <div class="section-title">// [02] ACTIVE_RESEARCH_SECTORS</div>
+            <div class="section-title"><span class="section-index">[02]</span> ACTIVE_RESEARCH_SECTORS</div>
 
             <div class="grid">
-                <!-- Departman 1 -->
-                <div class="card">
+                <article class="card">
                     <div class="card-header-sys">
                         <span class="sys-code">SEC_01//AERO</span>
                         <span class="sys-status green">TELEMETRY_OK</span>
                     </div>
-                    <h3>Aerospace & Autonomous Systems</h3>
-                    <p>YOLO tabanlı gerçek zamanlı hedef acquisition ve nesne takibi algoritmaları. Sürü zekası optimizasyonları ve fütüristik katlanır kanatlı çok motorlu hibrit VTOL İHA araçları ve yazılımları.</p>
+                    <h3>Aerospace &amp; Autonomous Systems</h3>
+                    <p>YOLO tabanlı gerçek zamanlı hedef acquisition ve nesne takibi algoritmaları. Sürü zekası optimizasyonları ve fütüristik katlanır kanatlı çok motorlu hibrit VTOL İHA ve yazılımları.</p>
                     <div class="live-data">
                         <span>SYS_ALT: 120m</span>
                         <span>SAT_CONN: 12/12</span>
                     </div>
-                </div>
+                </article>
 
-                <!-- Departman 2 -->
-                <div class="card">
+                <article class="card">
                     <div class="card-header-sys">
                         <span class="sys-code">SEC_02//SEC</span>
                         <span class="sys-status green">ENCRYPTED</span>
                     </div>
-                    <h3>Cyber Security & Cryptography</h3>
-                    <p>nRF52840 tabanlı donanımlı şifre kasaları (V31 Neuro-Link). Kali Linux mimarisinde sürücü kilitlenmelerini engelleyen, USB bant genişliği optimizasyonlu 4 antenli Wi-Fi yön ve konum tespit radarları.</p>
+                    <h3>Cyber Security &amp; Cryptography</h3>
+                    <p>nRF52840 tabanlı donanımlı şifre kasaları (V31 Neuro-Link). Kali Linux mimarisinde sürücü kilitlenmelerini engelleyen, USB bant genişliği optimizasyonlu 4 antenli Wi-Fi konum tespit radarları.</p>
                     <div class="live-data">
                         <span>ALGO: AES-256-GCM</span>
                         <span>RADAR: SCANNING</span>
                     </div>
-                </div>
+                </article>
 
-                <!-- Departman 3 -->
-                <div class="card">
+                <article class="card">
                     <div class="card-header-sys">
                         <span class="sys-code">SEC_03//BIO</span>
                         <span class="sys-status yellow">PRINT_ACTIVE</span>
                     </div>
-                    <h3>Bio-Digital & Fabrication</h3>
+                    <h3>Bio-Digital &amp; Fabrication</h3>
                     <p>Çok disiplinli moleküler hücre basım teknolojileri, yapay organ modelleme simülasyonları ve ekstrem havacılık koşullarına dayanıklı karbon fiber alaşımlı 3D parça üretimi.</p>
                     <div class="live-data">
                         <span>BIO_TEMP: 36.8°C</span>
                         <span>AXIS_Z: STEP_OK</span>
                     </div>
-                </div>
+                </article>
 
-                <!-- Departman 4 -->
-                <div class="card">
+                <article class="card">
                     <div class="card-header-sys">
                         <span class="sys-code">SEC_04//DEEP</span>
                         <span class="sys-status blue">SIM_MODE</span>
@@ -107,15 +140,27 @@
                         <span>ORBIT: SUB_REG</span>
                         <span>SIM: GAZEBO_H</span>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-line"></div>
-        <p>SYS_LOG // LOCALHOST // ACCESS_GRANTED // &copy; 2026 xenlabshq.xyz</p>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="logo">XEN_LABS</span>
+                <p>Advanced Frontiers &amp; Multidisciplinary Research</p>
+            </div>
+            <nav class="footer-nav" aria-label="Alt bilgi menüsü">
+                <a href="#vision">Vizyon</a>
+                <a href="#labs">Departmanlar</a>
+                <a href="https://github.com/xenlabshq" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </nav>
+        </div>
+        <p class="footer-log">SYS_LOG // LOCALHOST // ACCESS_GRANTED // &copy; 2026 xenlabshq.xyz</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
