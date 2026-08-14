@@ -1,57 +1,27 @@
-# Xen Labs
+<div align="center">
+  <img src="logo-mark.png" width="72" alt="Xen Labs" />
+  <h1>Xen Labs</h1>
+  <p><strong>Advanced Frontiers &amp; Multidisciplinary Research</strong></p>
+  <p><a href="https://xenlabshq.xyz">xenlabshq.xyz</a></p>
+</div>
 
-Advanced Frontiers & Multidisciplinary Research — statik tanıtım sayfası.
+<br>
 
-## Dosya yapısı
+### Focus areas
 
-```
-.
-├── index.html          # Tek sayfa site
-├── style.css           # Tüm stiller (design token'lar :root içinde)
-├── script.js           # Header'daki canlı saat (opsiyonel, non-blocking)
-├── logo-mark.png        # Navbar kalkan ikonu (şeffaf zemin)
-├── favicon-16.png
-├── favicon-32.png
-├── favicon-180.png      # apple-touch-icon
-├── og-image.png          # Sosyal paylaşım görseli (1200×630)
-├── robots.txt
-└── sitemap.xml
-```
+- **Aerospace & Autonomous Systems**
+- **Cyber Security & Cryptography**
+- **Bio-Digital & Fabrication**
+- **Frontier Deep Tech**
 
-## Yerel önizleme
+### Projects
 
-Ek bağımlılık yok. Klasörü bir statik sunucuyla aç:
+| Repo | Description |
+|---|---|
+| [xenlabshq](https://github.com/xenlabshq/xenlabshq) | Source for [xenlabshq.xyz](https://xenlabshq.xyz) — this profile & site |
+| [NeuraDev](https://github.com/xenlabshq/NeuraDev) | Flutter education app — interactive 3D modules, guided sessions |
+| [DriverToolGui](https://github.com/xenlabshq/DriverToolGui) | Driver backup & restore tool |
 
-```bash
-npx serve .
-# veya
-python3 -m http.server 8000
-```
+<br>
 
-`index.html`'i doğrudan çift tıklayarak da açabilirsin; tek risk `file://`
-üzerinden bazı tarayıcıların Google Fonts isteğini engellemesi (CORS) —
-bu durumda mono/display fontlar sistem fallback'ine düşer, site kırılmaz.
-
-## Domain / meta notları
-
-`index.html`, `robots.txt` ve `sitemap.xml` içinde `xenlabshq.xyz`
-placeholder olarak geçiyor. Gerçek domain farklıysa üç dosyada da
-bul-değiştir yap:
-
-- `index.html`: `og:image`, `twitter:image`, `canonical`
-- `robots.txt`: `Sitemap:` satırı
-- `sitemap.xml`: `<loc>`
-
-## Tasarım token'ları
-
-Renk / tipografi / boşluk değişkenleri `style.css` en üstünde `:root`
-içinde tanımlı — marka rengi veya font değiştirmek için tek yer orası.
-
-## Erişilebilirlik / performans notları
-
-- `prefers-reduced-motion` destekleniyor (boot animasyonu ve glitch
-  efekti otomatik kapanır).
-- Tüm interaktif elemanlarda `:focus-visible` outline var.
-- Boot sekansı ve glitch başlık animasyonu saf CSS; JS'siz de çalışır.
-- Canlı saat (`script.js`) dekoratif — yüklenmezse `00:00:00` placeholder
-  kalır, sayfa işlevini etkilemez.
+<sub>This repository also builds &amp; deploys <a href="https://xenlabshq.xyz">xenlabshq.xyz</a> via GitHub Actions on every push to <code>main</code> — see <a href="./DOCS.md">DOCS.md</a> for site development notes.</sub>
