@@ -2,7 +2,7 @@
   <img src="logo-mark.png" width="72" alt="Xen Labs" />
   <h1>Xen Labs</h1>
   <p><strong>Advanced Frontiers &amp; Multidisciplinary Research</strong></p>
-  <p><a href="https://xenlabshq.xyz">xenlabshq.xyz</a></p>
+  <p><a href="https://xenlabshq.xyz">xenlabshq.xyz</a> · <a href="https://www.linkedin.com/in/muhammed-semih-aykol-042418418">LinkedIn</a></p>
 </div>
 
 <br>
